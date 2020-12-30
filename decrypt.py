@@ -17,6 +17,9 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 import sys
 
+# User directory name
+userdirectory = ""
+
 def printSomething():
     # if you want the button to disappear:
     # button.destroy() or button.pack_forget()
@@ -31,7 +34,7 @@ root.withdraw()
 s=ttk.Style()
 s.theme_use('clam')
 
-file_path = filedialog.askopenfilename(initialdir = "/home/jonathasg",title = "Abrir texto a ser transformado em imagem",filetypes = (("arquivo txt","*.txt"),("arquivo jntsg","*.jntsg"),("todos os arquivos","*.*")))
+file_path = filedialog.askopenfilename(initialdir = "/home/{}".format(userdirectory),title = "Abrir texto a ser transformado em imagem",filetypes = (("arquivo txt","*.txt"),("arquivo jntsg","*.jntsg"),("todos os arquivos","*.*")))
 caminho = file_path
 
 while True:
@@ -110,7 +113,7 @@ newjpgtxt1 = newjpgtxt[0]
 
 
 new_img = b64_2_img(newjpgtxt1)
-file_path2 = filedialog.asksaveasfilename(initialdir = "/home/jonathasg",title = "Salvar imagem como texto",filetypes = (("arquivo jpg","*.jpg"),("arquivo png","*.png")))
+file_path2 = filedialog.asksaveasfilename(initialdir = "/home/{}".format(userdirectory),title = "Salvar imagem como texto",filetypes = (("arquivo jpg","*.jpg"),("arquivo png","*.png")))
 caminhof = file_path2
 
 new_img.save(caminhof)
