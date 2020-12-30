@@ -16,13 +16,16 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 
+# User directory name
+userdirectory = ""
+
 # Get image address
 root = tk.Tk()
 root.withdraw()
 s=ttk.Style()
 s.theme_use('clam')
 
-file_path = filedialog.askopenfilename(initialdir = "/home/jonathasg",title = "Abrir imagem a ser transformada em texto",filetypes = (("arquivo jpg","*.jpg"),("arquivo png","*.png"),("todos os arquivos","*.*")))
+file_path = filedialog.askopenfilename(initialdir = "/home/{}".format(userdirectory),title = "Abrir imagem a ser transformada em texto",filetypes = (("arquivo jpg","*.jpg"),("arquivo png","*.png"),("todos os arquivos","*.*")))
 caminho = file_path
 
 # Convert Image to Base64
@@ -50,7 +53,7 @@ mainloop( )
 
 senha = e1.get()
 
-file_path2 = filedialog.asksaveasfilename(initialdir = "/home/jonathasg",title = "Salvar imagem como texto",filetypes = (("arquivo txt","*.txt"),("arquivo jntsg","*.jntsg")))
+file_path2 = filedialog.asksaveasfilename(initialdir = "/home/{}".format(userdirectory),title = "Salvar imagem como texto",filetypes = (("arquivo txt","*.txt"),("arquivo jntsg","*.jntsg")))
 caminhof = file_path2
 
 with open(caminhof, "a+") as myfile:
